@@ -1,0 +1,15 @@
+.app-shell {
+  width: 100%;
+  min-height: 100vh;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  background: var(--bg);
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .app-shell {
+    max-width: 720px;
+    box-shadow: var(--shadow-card);
+  }
+}

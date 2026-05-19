@@ -1,0 +1,23 @@
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--brand);
+  background: transparent;
+  color: var(--brand);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  transition: background 0.15s ease, color 0.15s ease;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.pill:hover { background: rgba(139, 90, 43, 0.06); }
+
+.pill.active {
+  background: var(--brand);
+  color: #fff;
+}
