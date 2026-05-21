@@ -23,8 +23,8 @@ const DEMO_CAKES = [
       'A true masterpiece, featuring layers of moist peach-infused sponge cake generously filled with a medley of fresh, vibrant fruits and velvety chocolate.',
     sizes: [
       { label: 'Small', price_delta: 0 },
-      { label: 'Mediano', price_delta: 4 },
-      { label: 'Grande', price_delta: 8 },
+      { label: 'Medium', price_delta: 4 },
+      { label: 'Large', price_delta: 8 },
     ],
     extras: [
       { label: 'Mint Leaves', price_delta: 1 },
@@ -43,8 +43,8 @@ const DEMO_CAKES = [
     description: 'Rich dark chocolate sponge layered with silky ganache and finished with chocolate curls.',
     sizes: [
       { label: 'Small', price_delta: 0 },
-      { label: 'Mediano', price_delta: 5 },
-      { label: 'Grande', price_delta: 10 },
+      { label: 'Medium', price_delta: 5 },
+      { label: 'Large', price_delta: 10 },
     ],
     extras: [
       { label: 'Edible Flowers', price_delta: 2 },
@@ -58,7 +58,7 @@ const DEMO_CAKES = [
     allergens: [],
     image_url: '/cakes/cake-3.png',
     description: 'A light, plant-based vanilla sponge topped with fresh seasonal berries and coconut cream.',
-    sizes: [{ label: 'Small', price_delta: 0 }, { label: 'Mediano', price_delta: 4 }, { label: 'Grande', price_delta: 8 }],
+    sizes: [{ label: 'Small', price_delta: 0 }, { label: 'Medium', price_delta: 4 }, { label: 'Large', price_delta: 8 }],
     extras: [{ label: 'Edible Flowers', price_delta: 2 }, { label: 'Coconut Cream', price_delta: 1 }],
   },
   {
@@ -68,7 +68,7 @@ const DEMO_CAKES = [
     allergens: ['almonds', 'eggs', 'milk'],
     image_url: '/cakes/cake-1.png',
     description: 'Tender almond sponge with citrus glaze — gluten-free without compromise.',
-    sizes: [{ label: 'Small', price_delta: 0 }, { label: 'Mediano', price_delta: 5 }, { label: 'Grande', price_delta: 10 }],
+    sizes: [{ label: 'Small', price_delta: 0 }, { label: 'Medium', price_delta: 5 }, { label: 'Large', price_delta: 10 }],
     extras: [{ label: 'Mint Leaves', price_delta: 1 }, { label: 'Whipped Cream', price_delta: 1 }],
   },
   {
@@ -78,7 +78,7 @@ const DEMO_CAKES = [
     allergens: ['eggs', 'milk', 'walnuts'],
     image_url: '/cakes/cake-2.png',
     description: 'Three-tier vanilla and raspberry cake with hand-piped buttercream florals.',
-    sizes: [{ label: 'Mediano', price_delta: 0 }, { label: 'Grande', price_delta: 35 }],
+    sizes: [{ label: 'Medium', price_delta: 0 }, { label: 'Large', price_delta: 35 }],
     extras: [{ label: 'Edible Flowers', price_delta: 5 }],
   },
   {
