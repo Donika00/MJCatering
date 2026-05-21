@@ -1,10 +1,13 @@
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCartCount } from '../hooks/useCart';
+import Menu from './Menu';
 import styles from './Header.module.css';
 
 const Header = ({ showBack = false, title }) => {
   const count = useCartCount();
   const navigate = useNavigate();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <header className={styles.header}>
@@ -19,7 +22,11 @@ const Header = ({ showBack = false, title }) => {
           </svg>
         </button>
       ) : (
-        <button className={styles.iconBtn} aria-label="Menu">
+        <button
+          className={styles.iconBtn}
+          onClick={() => setMenuOpen(true)}
+          aria-label="Menu"
+        >
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
             <path d="M3 6h18M3 12h18M3 18h18" />
           </svg>
@@ -38,6 +45,8 @@ const Header = ({ showBack = false, title }) => {
         </svg>
         {count > 0 && <span className={styles.badge}>{count}</span>}
       </Link>
+
+      <Menu open={menuOpen} onClose={() => setMenuOpen(false)} />
     </header>
   );
 };
