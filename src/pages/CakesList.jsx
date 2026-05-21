@@ -10,7 +10,7 @@ import styles from './CakesList.module.css';
 
 const CATEGORY = 'cakes';
 const CATEGORY_TITLE = 'Cakes';
-const CATEGORY_BANNER = '/cakes/cake-1.png';
+const CATEGORY_BANNER = '/hero-2.png';
 
 // URL ⇆ filter state encoding ----------------------------------------------
 

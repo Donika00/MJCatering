@@ -14,12 +14,23 @@ const CATEGORIES = [
   { slug: 'desserts', label: 'Desserts',        image: '/desserts/dessert-2.png',     disabled: true },
 ];
 
-const TESTIMONIAL = {
-  stars: 5,
-  text: 'Yet preference connection unpleasant yet melancholy but end appearance. And excellence partiality estimating terminated day everything.',
-  name: 'Sabo Masties',
-  role: 'Founder @ Rolex',
-};
+const TESTIMONIALS = [
+  {
+    text: 'The desserts were fresh, beautifully presented, and full of flavor. You can really feel the quality and attention to detail in every bite.',
+    name: 'Martin Georgiev',
+    role: 'Restaurant Manager',
+  },
+  {
+    text: 'The French macarons were delicate, crisp, and incredibly flavorful. The texture was perfect and the flavors tasted authentic and refined.',
+    name: 'Violeta Ivanova',
+    role: 'Event Stylist',
+  },
+  {
+    text: 'The cake looked absolutely elegant and tasted amazing. The buttercream was smooth and light. Everyone at the celebration loved it.',
+    name: 'Reneta Angelova',
+    role: 'Teacher',
+  },
+];
 
 const BestsellerCarousel = ({ items }) => {
   const trackRef = useRef(null);
@@ -104,6 +115,59 @@ const BestsellerCarousel = ({ items }) => {
   );
 };
 
+const TestimonialsCarousel = ({ items }) => {
+  const [index, setIndex] = useState(0);
+  if (items.length === 0) return null;
+  const current = items[index];
+  const goTo = (i) => setIndex(Math.max(0, Math.min(items.length - 1, i)));
+
+  return (
+    <section className={styles.block}>
+      <h2 className={styles.blockTitle}>Loved by Our Customers</h2>
+
+      <div className={styles.testimonialsCarousel}>
+        <button
+          className={`${styles.testimonialNav} ${styles.testimonialPrev}`}
+          onClick={() => goTo(index - 1)}
+          disabled={index === 0}
+          aria-label="Previous testimonial"
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M15 18l-6-6 6-6" />
+          </svg>
+        </button>
+
+        <article className={styles.testimonialCard}>
+          <div className={styles.testimonialStars} aria-label="5 out of 5 stars">
+            {'★★★★★'}
+          </div>
+          <p className={styles.testimonialQuote}>“{current.text}”</p>
+          <div className={styles.testimonialAuthor}>
+            <div className={styles.testimonialAvatar} aria-hidden="true">
+              {current.name.charAt(0).toUpperCase()}
+            </div>
+            <div>
+              <div className={styles.testimonialName}>{current.name}</div>
+              <div className={styles.testimonialRole}>{current.role}</div>
+            </div>
+          </div>
+        </article>
+
+        <button
+          className={`${styles.testimonialNav} ${styles.testimonialNext}`}
+          onClick={() => goTo(index + 1)}
+          disabled={index === items.length - 1}
+          aria-label="Next testimonial"
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </button>
+      </div>
+    </section>
+  );
+};
+
 const Landing = () => {
   const [bestsellers, setBestsellers] = useState([]);
 
@@ -117,8 +181,8 @@ const Landing = () => {
 
       <section className={styles.hero}>
         <img
-          src="/cakes/cake-3.png"
-          alt=""
+          src="/hero-1.png"
+          alt="Assortment of macarons, eclairs, and tartlets"
           className={styles.heroImg}
         />
         <div className={styles.heroOverlay}>
@@ -135,19 +199,7 @@ const Landing = () => {
 
       <BestsellerCarousel items={bestsellers} />
 
-      <section className={styles.block}>
-        <h2 className={styles.blockTitle}>What our clients say</h2>
-        <div className={styles.testimonial}>
-          <div className={styles.stars}>
-            {'★★★★★'.slice(0, TESTIMONIAL.stars)}
-          </div>
-          <p>{TESTIMONIAL.text}</p>
-          <div className={styles.author}>
-            <div className={styles.name}>{TESTIMONIAL.name}</div>
-            <div className={styles.role}>{TESTIMONIAL.role}</div>
-          </div>
-        </div>
-      </section>
+      <TestimonialsCarousel items={TESTIMONIALS} />
 
       <Footer />
     </>
